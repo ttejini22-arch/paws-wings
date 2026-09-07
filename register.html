@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Register | Paws & Wings</title>
+
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+
+<style>
+
+/* =========================
+   PINK + WHITE THEME
+========================= */
+
+:root {
+    --pink: #e95b9f;
+    --dark-pink: #d94789;
+    --light-pink: #fff0f6;
+    --border-pink: #f3bfd5;
+}
+
+body {
+    background: #ffffff !important;
+}
+
+
+/* =========================
+   REMOVE GREEN
+========================= */
+
+.btn-success {
+    background: var(--pink) !important;
+    border-color: var(--pink) !important;
+    color: #ffffff !important;
+}
+
+.btn-success:hover {
+    background: var(--dark-pink) !important;
+    border-color: var(--dark-pink) !important;
+}
+
+
+/* =========================
+   REGISTER AREA
+========================= */
+
+.register-section {
+    min-height: 75vh;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            var(--light-pink)
+        );
+}
+
+
+/* Background circles */
+
+.register-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    background: rgba(233, 91, 159, 0.10);
+
+    left: 7%;
+    top: 8%;
+
+    animation: floatCircle 4s ease-in-out infinite;
+}
+
+.register-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    background: rgba(233, 91, 159, 0.13);
+
+    right: 9%;
+    bottom: 8%;
+
+    animation: floatCircle 3s ease-in-out infinite reverse;
+}
+
+@keyframes floatCircle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-22px);
+    }
+
+}
+
+
+/* =========================
+   REGISTER CARD
+========================= */
+
+.register-card {
+    background: #ffffff !important;
+
+    border: 2px solid var(--border-pink) !important;
+
+    border-radius: 20px !important;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 35px rgba(233, 91, 159, 0.12);
+
+    animation: cardAppear 0.8s ease;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Moving top line */
+
+.register-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 4px;
+
+    top: 0;
+    left: -100%;
+
+    background: var(--pink);
+
+    animation: topLine 3s linear infinite;
+}
+
+@keyframes topLine {
+
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 100%;
+    }
+
+}
+
+
+/* =========================
+   REGISTRATION ANIMATION
+========================= */
+
+.register-animation {
+    width: 100px;
+    height: 100px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    background: var(--light-pink);
+
+    border: 2px solid var(--pink);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Person */
+
+.register-person {
+    position: absolute;
+
+    width: 28px;
+    height: 38px;
+
+    background: var(--dark-pink);
+
+    border-radius: 14px 14px 7px 7px;
+
+    left: 34px;
+    top: 45px;
+
+    animation: personMove 2.5s ease-in-out infinite;
+}
+
+
+/* Head */
+
+.register-person::before {
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: var(--pink);
+
+    left: 4px;
+    top: -22px;
+}
+
+
+/* Form */
+
+.register-form {
+    position: absolute;
+
+    width: 30px;
+    height: 38px;
+
+    background: #ffffff;
+
+    border: 2px solid var(--pink);
+
+    border-radius: 4px;
+
+    right: 10px;
+    top: 31px;
+
+    animation: formMove 2.5s ease-in-out infinite;
+}
+
+
+/* Form lines */
+
+.register-form::before {
+    content: "";
+
+    position: absolute;
+
+    width: 17px;
+    height: 2px;
+
+    background: var(--pink);
+
+    left: 5px;
+    top: 9px;
+
+    box-shadow:
+        0 7px 0 rgba(233, 91, 159, 0.8),
+        0 14px 0 rgba(233, 91, 159, 0.6);
+
+    animation: formWrite 1.3s ease-in-out infinite;
+}
+
+
+/* Pen */
+
+.register-pen {
+    position: absolute;
+
+    width: 18px;
+    height: 4px;
+
+    background: var(--dark-pink);
+
+    border-radius: 5px;
+
+    left: 54px;
+    top: 56px;
+
+    transform: rotate(-35deg);
+
+    animation: penWrite 1.3s ease-in-out infinite;
+}
+
+
+@keyframes personMove {
+
+    0%,
+    100% {
+        transform: translateX(-7px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+}
+
+
+@keyframes formMove {
+
+    0%,
+    100% {
+        transform: translateX(3px);
+    }
+
+    50% {
+        transform: translateX(-3px);
+    }
+
+}
+
+
+@keyframes formWrite {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes penWrite {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(-35deg);
+    }
+
+    50% {
+        transform:
+            translate(-4px, 3px)
+            rotate(-35deg);
+    }
+
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.register-title {
+    color: var(--dark-pink);
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-control {
+    border: 1px solid var(--border-pink) !important;
+
+    border-radius: 10px;
+
+    padding: 11px 13px;
+}
+
+.form-control:focus {
+
+    border-color: var(--pink) !important;
+
+    box-shadow:
+        0 0 0 0.2rem rgba(233, 91, 159, 0.15) !important;
+}
+
+.form-label {
+    color: #555555;
+
+    font-weight: 500;
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+.register-card a {
+    color: var(--dark-pink);
+
+    text-decoration: none;
+
+    font-weight: 500;
+}
+
+.register-card a:hover {
+    color: var(--pink);
+
+    text-decoration: underline;
+}
+
+
+/* =========================
+   ALERT
+========================= */
+
+#alertBox .alert {
+    border-radius: 10px;
+
+    border-color: var(--border-pink);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .register-section {
+        min-height: 80vh;
+    }
+
+    .register-animation {
+        width: 90px;
+        height: 90px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body data-root="">
+
+
+<!-- NAVIGATION -->
+
+<div data-nav></div>
+
+
+<!-- REGISTER -->
+
+<div class="register-section">
+
+    <div class="container py-5">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-5">
+
+
+                <div class="card p-4 p-md-5 register-card">
+
+
+                    <!-- Registration Animation -->
+
+                    <div class="register-animation">
+
+                        <div class="register-person"></div>
+
+                        <div class="register-form"></div>
+
+                        <div class="register-pen"></div>
+
+                    </div>
+
+
+                    <h2 class="mb-3 register-title">
+                        Create Account
+                    </h2>
+
+
+                    <div id="alertBox"></div>
+
+
+                    <form id="registerForm">
+
+
+                        <label class="form-label">
+                            Full Name
+                        </label>
+
+                        <input
+                            id="name"
+                            class="form-control mb-3"
+                            required>
+
+
+                        <label class="form-label">
+                            Email
+                        </label>
+
+                        <input
+                            id="email"
+                            type="email"
+                            class="form-control mb-3"
+                            required>
+
+
+                        <label class="form-label">
+                            Password
+                        </label>
+
+                        <input
+                            id="password"
+                            type="password"
+                            minlength="6"
+                            class="form-control mb-3"
+                            required>
+
+
+                        <button
+                            class="btn btn-success w-100">
+
+                            Register
+
+                        </button>
+
+
+                    </form>
+
+
+                    <p class="text-center mt-3 mb-0">
+
+                        Already have an account?
+
+                        <a href="login.html">
+                            Login
+                        </a>
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- EXISTING REGISTER FUNCTIONALITY -->
+
+<script>
+
+document
+.querySelector("#registerForm")
+.addEventListener("submit", async e => {
+
+    e.preventDefault();
+
+
+    if (!window.sb) {
+
+        alertBox(
+            "First configure Supabase in assets/js/config.js.",
+            "danger"
+        );
+
+        return;
+    }
+
+
+    const { data, error } =
+        await sb.auth.signUp({
+
+            email: email.value,
+
+            password: password.value,
+
+            options: {
+
+                data: {
+                    full_name: name.value
+                }
+
+            }
+
+        });
+
+
+    if (error) {
+
+        alertBox(
+            error.message,
+            "danger"
+        );
+
+        return;
+    }
+
+
+    alertBox(
+        data.session
+            ? "Account created."
+            : "Account created. Check your email to confirm."
+    );
+
+});
+
+</script>
+
+
+<!-- FOOTER -->
+
+<div data-footer></div>
+
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="assets/js/config.js"></script>
+
+<script src="assets/js/supabase.js"></script>
+
+<script src="assets/js/auth.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

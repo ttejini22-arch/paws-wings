@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>NGO Dashboard | Paws & Wings</title>
+
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+<style>
+
+/* =========================
+   PINK + WHITE THEME
+========================= */
+
+:root {
+    --pink: #e95b9f;
+    --dark-pink: #d94789;
+    --light-pink: #fff0f6;
+    --border-pink: #f3bfd5;
+}
+
+body {
+    background: #ffffff !important;
+}
+
+
+/* =========================
+   REMOVE GREEN
+========================= */
+
+.btn-success {
+    background: var(--pink) !important;
+    border-color: var(--pink) !important;
+    color: #ffffff !important;
+}
+
+.btn-success:hover {
+    background: var(--dark-pink) !important;
+    border-color: var(--dark-pink) !important;
+}
+
+
+/* =========================
+   NGO HEADER
+========================= */
+
+.ngo-header {
+    position: relative;
+    overflow: hidden;
+
+    padding: 65px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--light-pink),
+            #ffffff
+        ) !important;
+}
+
+.ngo-header h1 {
+    color: var(--dark-pink);
+    font-weight: 700;
+}
+
+.ngo-header .text-muted {
+    color: #666666 !important;
+}
+
+
+/* Floating circles */
+
+.ngo-header::before {
+    content: "";
+
+    position: absolute;
+
+    width: 155px;
+    height: 155px;
+
+    border-radius: 50%;
+
+    background: rgba(233, 91, 159, 0.10);
+
+    right: 10%;
+    top: 15px;
+
+    animation: floatCircle 4s ease-in-out infinite;
+}
+
+.ngo-header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    background: rgba(233, 91, 159, 0.15);
+
+    right: 28%;
+    bottom: 15px;
+
+    animation: floatCircle 3s ease-in-out infinite reverse;
+}
+
+@keyframes floatCircle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+
+}
+
+
+/* =========================
+   NGO CARD
+========================= */
+
+.ngo-card {
+
+    position: relative;
+
+    background: #ffffff;
+
+    border: 2px solid var(--border-pink);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 12px 35px rgba(233, 91, 159, 0.12);
+
+    overflow: hidden;
+
+    animation: cardAppear 0.8s ease;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Animated top line */
+
+.ngo-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 4px;
+
+    left: -100%;
+    top: 0;
+
+    background: var(--pink);
+
+    animation: topLine 3s linear infinite;
+}
+
+@keyframes topLine {
+
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 100%;
+    }
+
+}
+
+
+/* =========================
+   NGO ANIMATION
+========================= */
+
+.ngo-animation {
+
+    width: 125px;
+    height: 125px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    background: var(--light-pink);
+
+    border: 2px solid var(--pink);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* NGO building */
+
+.ngo-building {
+
+    position: absolute;
+
+    width: 50px;
+    height: 48px;
+
+    background: #ffffff;
+
+    border: 2px solid var(--pink);
+
+    border-radius: 5px;
+
+    left: 12px;
+    bottom: 22px;
+
+    animation: buildingPulse 2.5s ease-in-out infinite;
+}
+
+
+/* Building roof */
+
+.ngo-building::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 58px;
+    height: 10px;
+
+    background: var(--pink);
+
+    left: -6px;
+    top: -9px;
+
+    border-radius: 5px 5px 2px 2px;
+}
+
+
+/* Building door */
+
+.ngo-building::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+    height: 20px;
+
+    background: var(--light-pink);
+
+    border: 1px solid var(--pink);
+
+    left: 17px;
+    bottom: 0;
+}
+
+
+/* NGO person */
+
+.ngo-person {
+
+    position: absolute;
+
+    width: 25px;
+    height: 34px;
+
+    background: var(--pink);
+
+    border-radius: 13px 13px 7px 7px;
+
+    right: 23px;
+    bottom: 22px;
+
+    animation: personHelp 2.5s ease-in-out infinite;
+}
+
+
+/* Head */
+
+.ngo-person::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+
+    background: var(--dark-pink);
+
+    border-radius: 50%;
+
+    left: 2px;
+    top: -17px;
+}
+
+
+/* Helping arm */
+
+.ngo-person::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 25px;
+    height: 6px;
+
+    background: var(--dark-pink);
+
+    border-radius: 5px;
+
+    left: -17px;
+    top: 12px;
+
+    transform: rotate(20deg);
+
+    transform-origin: right center;
+
+    animation: helpingArm 1.2s ease-in-out infinite;
+}
+
+
+/* Small animal */
+
+.ngo-animal {
+
+    position: absolute;
+
+    width: 22px;
+    height: 14px;
+
+    background: var(--dark-pink);
+
+    border-radius: 8px;
+
+    left: 53px;
+    bottom: 25px;
+
+    animation: animalApproach 2.5s ease-in-out infinite;
+}
+
+
+/* Animal head */
+
+.ngo-animal::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: var(--pink);
+
+    right: -7px;
+    top: -4px;
+}
+
+
+/* Heart-style support signal using CSS */
+
+.ngo-heart {
+
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    background: var(--pink);
+
+    transform: rotate(45deg);
+
+    right: 14px;
+    top: 20px;
+
+    animation: heartPulse 1.5s ease-in-out infinite;
+}
+
+.ngo-heart::before,
+.ngo-heart::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    background: var(--pink);
+
+    border-radius: 50%;
+}
+
+.ngo-heart::before {
+    left: -5px;
+}
+
+.ngo-heart::after {
+    top: -5px;
+}
+
+
+@keyframes buildingPulse {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+
+}
+
+
+@keyframes personHelp {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-6px);
+    }
+
+}
+
+
+@keyframes helpingArm {
+
+    0%,
+    100% {
+        transform: rotate(20deg);
+    }
+
+    50% {
+        transform: rotate(-10deg);
+    }
+
+}
+
+
+@keyframes animalApproach {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(6px);
+    }
+
+}
+
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+        transform: rotate(45deg) scale(0.8);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: rotate(45deg) scale(1.15);
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================
+   INFO BOX
+========================= */
+
+.ngo-info {
+
+    margin-top: 25px;
+
+    padding: 18px;
+
+    background: var(--light-pink);
+
+    border: 1px solid var(--border-pink);
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    color: #666666;
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+.logout-button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.logout-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(233, 91, 159, 0.22);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .ngo-header {
+        padding: 50px 0;
+    }
+
+    .ngo-header h1 {
+        font-size: 30px;
+    }
+
+    .ngo-card {
+        padding: 25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body data-root="../">
+
+
+<!-- NAVIGATION -->
+
+<div data-nav></div>
+
+
+<!-- HEADER -->
+
+<section class="soft section ngo-header">
+
+    <div class="container">
+
+        <h1>NGO Dashboard</h1>
+
+        <p class="text-muted">
+            Authentication and role-based dashboard features will be connected in Phase 2.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- NGO DASHBOARD -->
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-7">
+
+            <div class="ngo-card">
+
+
+                <!-- NGO Animation -->
+
+                <div class="ngo-animation">
+
+                    <div class="ngo-building"></div>
+
+                    <div class="ngo-animal"></div>
+
+                    <div class="ngo-person"></div>
+
+                    <div class="ngo-heart"></div>
+
+                </div>
+
+
+                <div id="alertBox"></div>
+
+
+                <div class="ngo-info">
+
+                    NGO dashboard is ready.
+
+                </div>
+
+
+                <button
+                    class="btn btn-success logout-button mt-4"
+                    id="logoutBtn">
+
+                    Logout
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- EXISTING FUNCTIONALITY -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const s = await currentSession();
+
+    if (!s) {
+        location.href = "../login.html";
+        return;
+    }
+
+    document.querySelector("#logoutBtn").onclick = logout;
+
+});
+
+</script>
+
+
+<!-- FOOTER -->
+
+<div data-footer></div>
+
+
+<!-- EXISTING SCRIPTS -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../assets/js/config.js"></script>
+
+<script src="../assets/js/supabase.js"></script>
+
+<script src="../assets/js/auth.js"></script>
+
+<script src="../assets/js/main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2757 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Home | Paws & Wings</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <style>
+
+        /* =====================================================
+           PAWS & WINGS
+           PINK + WHITE PROFESSIONAL DESIGN
+        ===================================================== */
+
+        :root {
+            --pink: #e95b9f;
+            --pink-dark: #d94789;
+            --pink-light: #fff1f7;
+            --pink-soft: #fff8fb;
+            --pink-border: #f6c8dd;
+            --dark: #242129;
+            --text: #68636b;
+            --white: #ffffff;
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: var(--dark);
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero-section {
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 82% 45%,
+                    #fff0f6 0,
+                    #fff8fb 27%,
+                    #ffffff 62%
+                );
+
+            overflow: hidden;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+
+        .hero-badge {
+
+            display: inline-block;
+
+            padding: 10px 18px;
+
+            border-radius: 30px;
+
+            background: var(--pink-light);
+
+            color: var(--pink);
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero-content h1 {
+
+            font-size: clamp(48px, 6vw, 76px);
+
+            line-height: 1.04;
+
+            font-weight: 800;
+
+            letter-spacing: -3px;
+
+            margin: 0;
+        }
+
+
+        .hero-content h1 span {
+            color: var(--pink);
+        }
+
+
+        .hero-description {
+
+            max-width: 600px;
+
+            margin-top: 30px;
+
+            margin-bottom: 30px;
+
+            color: var(--text);
+
+            font-size: 18px;
+
+            line-height: 1.9;
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .primary-btn,
+        .secondary-btn {
+
+            padding: 16px 27px;
+
+            border-radius: 40px;
+
+            font-weight: 600;
+
+            transition: .3s ease;
+        }
+
+
+        .primary-btn {
+
+            background: var(--pink);
+
+            color: white;
+
+            box-shadow:
+                0 12px 30px rgba(233, 91, 159, .25);
+        }
+
+
+        .primary-btn:hover {
+
+            background: var(--pink-dark);
+
+            color: white;
+
+            transform: translateY(-3px);
+        }
+
+
+        .primary-btn .arrow {
+            margin-left: 10px;
+        }
+
+
+        .secondary-btn {
+
+            background: white;
+
+            color: var(--pink);
+
+            border: 1.5px solid var(--pink);
+        }
+
+
+        .secondary-btn:hover {
+
+            background: var(--pink-light);
+
+            color: var(--pink-dark);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =====================================================
+           HERO STATS
+        ===================================================== */
+
+        .hero-stats {
+
+            display: flex;
+
+            align-items: center;
+
+            margin-top: 45px;
+        }
+
+
+        .stat-circle {
+
+            width: 43px;
+            height: 43px;
+
+            border-radius: 50%;
+
+            background: var(--pink-light);
+
+            border: 2px solid white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-left: -7px;
+
+            color: var(--pink);
+
+            font-size: 10px;
+
+            font-weight: bold;
+        }
+
+
+        .stat-circle:first-child {
+            margin-left: 0;
+        }
+
+
+        .stat-text {
+
+            margin-left: 15px;
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        .stat-text strong {
+            font-size: 15px;
+        }
+
+
+        .stat-text small {
+            color: #999;
+            margin-top: 3px;
+        }
+
+
+        /* =====================================================
+           HERO ANIMATED AREA
+        ===================================================== */
+
+        .hero-animal-area {
+
+            height: 600px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .hero-circle {
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            background: var(--pink-light);
+        }
+
+
+        .ground-shadow {
+
+            position: absolute;
+
+            bottom: 90px;
+
+            width: 460px;
+            height: 25px;
+
+            border-radius: 50%;
+
+            background: #f3c5d9;
+        }
+
+
+        /* =====================================================
+           DOG
+        ===================================================== */
+
+        .hero-dog {
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            left: 90px;
+
+            bottom: 120px;
+
+            animation:
+                dogPlay 4s ease-in-out infinite;
+        }
+
+
+        .dog-head {
+
+            position: absolute;
+
+            width: 120px;
+            height: 105px;
+
+            background: #efaa76;
+
+            border-radius: 48%;
+
+            left: 45px;
+            top: 25px;
+
+            z-index: 4;
+        }
+
+
+        .dog-ear {
+
+            position: absolute;
+
+            width: 48px;
+            height: 75px;
+
+            background: #b66e49;
+
+            border-radius: 50%;
+
+            z-index: 5;
+        }
+
+
+        .dog-ear-left {
+
+            left: 28px;
+            top: 28px;
+
+            transform: rotate(25deg);
+        }
+
+
+        .dog-ear-right {
+
+            right: 28px;
+            top: 28px;
+
+            transform: rotate(-25deg);
+        }
+
+
+        .dog-eye {
+
+            position: absolute;
+
+            width: 9px;
+            height: 9px;
+
+            background: #29242a;
+
+            border-radius: 50%;
+
+            top: 43px;
+        }
+
+
+        .eye-left {
+            left: 38px;
+        }
+
+
+        .eye-right {
+            right: 38px;
+        }
+
+
+        .dog-muzzle {
+
+            position: absolute;
+
+            width: 55px;
+            height: 38px;
+
+            background: #ffd09f;
+
+            border-radius: 50%;
+
+            left: 32px;
+            top: 50px;
+        }
+
+
+        .dog-nose {
+
+            width: 17px;
+            height: 11px;
+
+            border-radius: 50%;
+
+            background: #30262b;
+
+            position: absolute;
+
+            left: 19px;
+            top: 8px;
+        }
+
+
+        .dog-body {
+
+            position: absolute;
+
+            width: 175px;
+            height: 110px;
+
+            background: #e99b64;
+
+            border-radius: 45%;
+
+            left: 65px;
+            top: 105px;
+        }
+
+
+        .dog-leg {
+
+            position: absolute;
+
+            width: 27px;
+            height: 75px;
+
+            background: #d98552;
+
+            border-radius: 20px;
+
+            top: 165px;
+
+            z-index: 5;
+        }
+
+
+        .leg-one {
+            left: 78px;
+        }
+
+
+        .leg-two {
+            left: 120px;
+        }
+
+
+        .leg-three {
+            left: 175px;
+        }
+
+
+        .leg-four {
+            left: 205px;
+        }
+
+
+        .dog-tail {
+
+            position: absolute;
+
+            width: 85px;
+            height: 25px;
+
+            border: 12px solid #ad6947;
+
+            border-left: 0;
+            border-bottom: 0;
+
+            border-radius: 50%;
+
+            right: -25px;
+            top: 105px;
+
+            transform: rotate(35deg);
+        }
+
+
+        /* =====================================================
+           CAT
+        ===================================================== */
+
+        .hero-cat {
+
+            position: absolute;
+
+            width: 210px;
+            height: 280px;
+
+            right: 65px;
+            bottom: 100px;
+
+            animation:
+                catPlay 3.5s ease-in-out infinite;
+        }
+
+
+        .cat-head {
+
+            position: absolute;
+
+            width: 105px;
+            height: 105px;
+
+            background: #d58da8;
+
+            border-radius: 48%;
+
+            top: 25px;
+            left: 50px;
+
+            z-index: 3;
+        }
+
+
+        .cat-ear {
+
+            position: absolute;
+
+            width: 45px;
+            height: 65px;
+
+            background: #d58da8;
+
+            top: 0;
+
+            z-index: 4;
+        }
+
+
+        .cat-ear-left {
+
+            left: 52px;
+
+            transform: rotate(-15deg);
+        }
+
+
+        .cat-ear-right {
+
+            right: 52px;
+
+            transform: rotate(15deg);
+        }
+
+
+        .cat-eye {
+
+            position: absolute;
+
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #30262b;
+
+            top: 50px;
+        }
+
+
+        .cat-eye.eye-left {
+            left: 30px;
+        }
+
+
+        .cat-eye.eye-right {
+            right: 30px;
+        }
+
+
+        .cat-nose {
+
+            position: absolute;
+
+            width: 11px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: var(--pink);
+
+            left: 47px;
+            top: 67px;
+        }
+
+
+        .cat-body {
+
+            position: absolute;
+
+            width: 120px;
+            height: 145px;
+
+            background: #d58da8;
+
+            border-radius: 48%;
+
+            top: 105px;
+            left: 43px;
+        }
+
+
+        .cat-leg {
+
+            position: absolute;
+
+            width: 25px;
+            height: 70px;
+
+            background: #c57e9a;
+
+            border-radius: 20px;
+
+            top: 205px;
+
+            z-index: 4;
+        }
+
+
+        .cat-leg-one {
+            left: 55px;
+        }
+
+
+        .cat-leg-two {
+            left: 90px;
+        }
+
+
+        .cat-leg-three {
+            left: 125px;
+        }
+
+
+        .cat-tail {
+
+            position: absolute;
+
+            width: 105px;
+            height: 120px;
+
+            border: 12px solid #c57e9a;
+
+            border-left: 0;
+            border-bottom: 0;
+
+            border-radius: 50%;
+
+            right: -45px;
+            top: 120px;
+
+            transform: rotate(15deg);
+        }
+
+
+        /* =====================================================
+           BIRDS
+        ===================================================== */
+
+        .bird {
+
+            position: absolute;
+
+            width: 70px;
+            height: 45px;
+
+            z-index: 8;
+
+            animation:
+                birdFly 4s ease-in-out infinite;
+        }
+
+
+        .bird-one {
+
+            top: 90px;
+            right: 170px;
+        }
+
+
+        .bird-two {
+
+            top: 150px;
+            right: 70px;
+
+            animation-delay: 1.2s;
+        }
+
+
+        .bird-body {
+
+            position: absolute;
+
+            width: 48px;
+            height: 28px;
+
+            background: #ee82b1;
+
+            border-radius: 50%;
+        }
+
+
+        .bird-wing {
+
+            position: absolute;
+
+            width: 35px;
+            height: 18px;
+
+            background: #d94789;
+
+            border-radius: 50%;
+
+            left: 25px;
+            top: 2px;
+
+            transform: rotate(25deg);
+
+            animation:
+                wingMove .5s ease-in-out infinite alternate;
+        }
+
+
+        .bird-beak {
+
+            position: absolute;
+
+            width: 0;
+            height: 0;
+
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 12px solid #e5a15b;
+
+            left: 45px;
+            top: 9px;
+        }
+
+
+        /* =====================================================
+           HELP SECTION
+        ===================================================== */
+
+        .help-section {
+
+            padding: 110px 0;
+
+            background: white;
+        }
+
+
+        .section-heading {
+
+            max-width: 700px;
+
+            margin: auto auto 60px;
+        }
+
+
+        .section-heading span {
+
+            color: var(--pink);
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+
+        .section-heading h2 {
+
+            margin-top: 12px;
+
+            font-size: 46px;
+
+            font-weight: 800;
+        }
+
+
+        .section-heading h2 strong {
+            color: var(--pink);
+        }
+
+
+        .section-heading p {
+            color: var(--text);
+        }
+
+
+        /* =====================================================
+           CARDS
+        ===================================================== */
+
+        .service-card {
+
+            height: 100%;
+
+            background: white;
+
+            border: 1px solid var(--pink-border);
+
+            border-radius: 25px;
+
+            overflow: hidden;
+
+            transition: .4s ease;
+        }
+
+
+        .service-card:hover {
+
+            transform: translateY(-10px);
+
+            border-color: var(--pink);
+
+            box-shadow:
+                0 20px 50px rgba(233,91,159,.14);
+        }
+
+
+        .animation-box {
+
+            position: relative;
+
+            height: 260px;
+
+            overflow: hidden;
+
+            background: var(--pink-soft);
+        }
+
+
+        .service-content {
+            padding: 28px;
+        }
+
+
+        .service-number {
+
+            color: var(--pink);
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .service-content h3 {
+
+            margin-top: 10px;
+
+            font-size: 24px;
+
+            font-weight: 700;
+        }
+
+
+        .service-content p {
+
+            color: var(--text);
+
+            line-height: 1.7;
+        }
+
+
+        .service-content a {
+
+            display: inline-block;
+
+            margin-top: 8px;
+
+            color: var(--pink);
+
+            font-weight: 700;
+        }
+
+
+        .service-content a span {
+
+            margin-left: 7px;
+
+            transition: .3s;
+        }
+
+
+        .service-content a:hover span {
+            margin-left: 13px;
+        }
+
+
+        /* =====================================================
+           PROFESSIONAL AMBULANCE
+        ===================================================== */
+
+        .rescue-animation {
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #fff3f8 0 70%,
+                    #f9d5e5 70% 72%,
+                    #fff3f8 72%
+                );
+        }
+
+
+        .road-line {
+
+            position: absolute;
+
+            bottom: 68px;
+
+            width: 100%;
+
+            height: 5px;
+
+            background:
+                repeating-linear-gradient(
+                    to right,
+                    var(--pink) 0 40px,
+                    transparent 40px 70px
+                );
+
+            animation:
+                roadMove 1.5s linear infinite;
+        }
+
+
+        .ambulance {
+
+            position: absolute;
+
+            width: 155px;
+            height: 85px;
+
+            bottom: 72px;
+
+            left: -180px;
+
+            animation:
+                ambulanceDrive 5s linear infinite;
+        }
+
+
+        .ambulance-body {
+
+            position: absolute;
+
+            width: 145px;
+            height: 65px;
+
+            background: white;
+
+            border: 3px solid var(--pink);
+
+            border-radius: 14px;
+
+            bottom: 0;
+        }
+
+
+        .ambulance-window {
+
+            position: absolute;
+
+            width: 38px;
+            height: 28px;
+
+            background: var(--pink-light);
+
+            border: 2px solid var(--pink);
+
+            left: 12px;
+            top: 10px;
+
+            border-radius: 5px;
+        }
+
+
+        .ambulance-window.second {
+            left: 55px;
+        }
+
+
+        .ambulance-cross {
+
+            position: absolute;
+
+            right: 25px;
+            top: 10px;
+
+            width: 28px;
+            height: 28px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 5px;
+
+            background: var(--pink);
+
+            color: white;
+
+            font-size: 20px;
+
+            font-weight: bold;
+        }
+
+
+        .ambulance-light {
+
+            position: absolute;
+
+            width: 32px;
+            height: 12px;
+
+            background: var(--pink);
+
+            border-radius: 8px 8px 2px 2px;
+
+            top: -9px;
+            left: 60px;
+
+            animation:
+                sirenBlink .7s infinite;
+        }
+
+
+        .wheel {
+
+            position: absolute;
+
+            width: 30px;
+            height: 30px;
+
+            border-radius: 50%;
+
+            background: #332d32;
+
+            bottom: -13px;
+
+            border: 7px solid white;
+        }
+
+
+        .wheel-one {
+            left: 20px;
+        }
+
+
+        .wheel-two {
+            right: 20px;
+        }
+
+
+        /* =====================================================
+           ADOPTION
+        ===================================================== */
+
+        .adoption-animation {
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #fff7fa 0 70%,
+                    #f7d0e0 70% 73%,
+                    #fff7fa 73%
+                );
+        }
+
+
+        .adoption-ground {
+
+            position: absolute;
+
+            bottom: 68px;
+
+            width: 100%;
+
+            height: 8px;
+
+            background: #f0b9d0;
+
+            border-radius: 50%;
+        }
+
+
+        /* DOG */
+
+        .adoption-dog {
+
+            position: absolute;
+
+            width: 105px;
+            height: 130px;
+
+            bottom: 65px;
+
+            left: 40px;
+
+            animation:
+                dogWalk 7s ease-in-out infinite;
+        }
+
+
+        .adopt-dog-head {
+
+            position: absolute;
+
+            width: 58px;
+            height: 55px;
+
+            border-radius: 50%;
+
+            background: #e8a46f;
+
+            top: 10px;
+            left: 25px;
+        }
+
+
+        .adopt-dog-ear {
+
+            position: absolute;
+
+            width: 22px;
+            height: 35px;
+
+            background: #b96f4b;
+
+            border-radius: 50%;
+
+            top: 15px;
+
+            z-index: 3;
+        }
+
+
+        .adopt-dog-ear.left {
+            left: 18px;
+        }
+
+
+        .adopt-dog-ear.right {
+            right: 15px;
+        }
+
+
+        .adopt-eye {
+
+            position: absolute;
+
+            width: 5px;
+            height: 5px;
+
+            border-radius: 50%;
+
+            background: #2d282c;
+
+            top: 25px;
+        }
+
+
+        .adopt-eye.left {
+            left: 18px;
+        }
+
+
+        .adopt-eye.right {
+            right: 18px;
+        }
+
+
+        .adopt-nose {
+
+            position: absolute;
+
+            width: 8px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #332a2f;
+
+            left: 25px;
+            top: 36px;
+        }
+
+
+        .adopt-dog-body {
+
+            position: absolute;
+
+            width: 75px;
+            height: 55px;
+
+            background: #e29a65;
+
+            border-radius: 50%;
+
+            top: 58px;
+            left: 20px;
+        }
+
+
+        .adopt-leg {
+
+            position: absolute;
+
+            width: 13px;
+            height: 45px;
+
+            background: #d48253;
+
+            border-radius: 10px;
+
+            top: 88px;
+        }
+
+
+        .adopt-leg.one {
+            left: 25px;
+        }
+
+
+        .adopt-leg.two {
+            left: 50px;
+        }
+
+
+        .adopt-leg.three {
+            left: 75px;
+        }
+
+
+        .adopt-tail {
+
+            position: absolute;
+
+            width: 40px;
+            height: 35px;
+
+            border: 7px solid #b96f4b;
+
+            border-left: 0;
+            border-bottom: 0;
+
+            border-radius: 50%;
+
+            right: -18px;
+            top: 62px;
+        }
+
+
+        /* PERSON */
+
+        .adopter {
+
+            position: absolute;
+
+            width: 70px;
+            height: 160px;
+
+            bottom: 66px;
+
+            right: -100px;
+
+            animation:
+                personAdopt 7s ease-in-out infinite;
+
+            z-index: 5;
+        }
+
+
+        .person-head {
+
+            position: absolute;
+
+            width: 30px;
+            height: 30px;
+
+            border-radius: 50%;
+
+            background: #e5b095;
+
+            left: 20px;
+        }
+
+
+        .person-body {
+
+            position: absolute;
+
+            width: 45px;
+            height: 65px;
+
+            background: var(--pink);
+
+            border-radius: 18px 18px 8px 8px;
+
+            top: 30px;
+            left: 12px;
+        }
+
+
+        .person-arm {
+
+            position: absolute;
+
+            width: 12px;
+            height: 50px;
+
+            background: #e5b095;
+
+            border-radius: 10px;
+
+            top: 40px;
+        }
+
+
+        .person-arm-left {
+
+            left: 4px;
+
+            transform: rotate(35deg);
+        }
+
+
+        .person-arm-right {
+
+            right: 3px;
+
+            transform: rotate(-50deg);
+        }
+
+
+        .person-leg {
+
+            position: absolute;
+
+            width: 13px;
+            height: 60px;
+
+            background: #756a72;
+
+            border-radius: 10px;
+
+            top: 90px;
+        }
+
+
+        .person-leg-left {
+            left: 17px;
+        }
+
+
+        .person-leg-right {
+            right: 17px;
+        }
+
+
+        .adoption-heart {
+
+            position: absolute;
+
+            width: 18px;
+            height: 18px;
+
+            background: var(--pink);
+
+            transform: rotate(-45deg);
+
+            top: 55px;
+            left: 145px;
+
+            opacity: 0;
+
+            animation:
+                heartFloat 7s ease-in-out infinite;
+        }
+
+
+        .adoption-heart::before,
+        .adoption-heart::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 18px;
+            height: 18px;
+
+            background: var(--pink);
+
+            border-radius: 50%;
+        }
+
+
+        .adoption-heart::before {
+
+            top: -9px;
+            left: 0;
+        }
+
+
+        .adoption-heart::after {
+
+            left: 9px;
+            top: 0;
+        }
+
+
+        /* =====================================================
+           VOLUNTEER
+        ===================================================== */
+
+        .volunteer-animation {
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #fff6fa 0 70%,
+                    #f7d1e1 70% 73%,
+                    #fff6fa 73%
+                );
+        }
+
+
+        .volunteer-ground {
+
+            position: absolute;
+
+            bottom: 68px;
+
+            width: 100%;
+
+            height: 7px;
+
+            background: #efb7cf;
+
+            border-radius: 50%;
+        }
+
+
+        /* FORM */
+
+        .volunteer-form {
+
+            position: absolute;
+
+            width: 120px;
+            height: 130px;
+
+            background: white;
+
+            border: 2px solid var(--pink);
+
+            border-radius: 10px;
+
+            bottom: 72px;
+            left: 105px;
+
+            padding: 15px;
+
+            transform: scale(0);
+
+            transform-origin: bottom;
+
+            animation:
+                formAppear 7s ease-in-out infinite;
+        }
+
+
+        .form-header {
+
+            width: 60px;
+            height: 7px;
+
+            background: var(--pink);
+
+            border-radius: 5px;
+
+            margin-bottom: 13px;
+        }
+
+
+        .form-line {
+
+            width: 85px;
+            height: 5px;
+
+            background: #f3c9dc;
+
+            border-radius: 5px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .form-line.short {
+            width: 55px;
+        }
+
+
+        .form-box {
+
+            width: 13px;
+            height: 13px;
+
+            border: 2px solid var(--pink);
+
+            margin-top: 8px;
+        }
+
+
+        .form-button {
+
+            width: 55px;
+            height: 10px;
+
+            background: var(--pink);
+
+            border-radius: 8px;
+
+            margin-top: 10px;
+        }
+
+
+        /* VOLUNTEER PERSON */
+
+        .volunteer-person {
+
+            position: absolute;
+
+            width: 70px;
+            height: 170px;
+
+            bottom: 67px;
+
+            left: -90px;
+
+            animation:
+                volunteerWalk 7s ease-in-out infinite;
+        }
+
+
+        .volunteer-head {
+
+            width: 30px;
+            height: 30px;
+
+            background: #e4ad91;
+
+            border-radius: 50%;
+
+            margin: auto;
+        }
+
+
+        .volunteer-body {
+
+            width: 45px;
+            height: 65px;
+
+            background: var(--pink);
+
+            border-radius: 15px;
+
+            margin: 3px auto;
+        }
+
+
+        .volunteer-arm {
+
+            position: absolute;
+
+            width: 11px;
+            height: 52px;
+
+            background: #e4ad91;
+
+            border-radius: 10px;
+
+            top: 45px;
+            right: 2px;
+
+            transform: rotate(-55deg);
+
+            transform-origin: top;
+
+            animation:
+                writingArm 7s ease-in-out infinite;
+        }
+
+
+        .volunteer-leg {
+
+            position: absolute;
+
+            width: 13px;
+            height: 60px;
+
+            background: #756a72;
+
+            border-radius: 10px;
+
+            top: 96px;
+        }
+
+
+        .volunteer-leg.left {
+            left: 18px;
+        }
+
+
+        .volunteer-leg.right {
+            right: 18px;
+        }
+
+
+        .writing-pen {
+
+            position: absolute;
+
+            width: 38px;
+            height: 4px;
+
+            background: var(--pink);
+
+            left: 175px;
+            bottom: 130px;
+
+            transform: rotate(-25deg);
+
+            opacity: 0;
+
+            animation:
+                penWriting 7s ease-in-out infinite;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .cta-section {
+
+            padding: 80px 0;
+
+            background: var(--pink-light);
+        }
+
+
+        .cta-box {
+
+            background: white;
+
+            border: 1px solid var(--pink-border);
+
+            border-radius: 30px;
+
+            padding: 50px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 30px;
+        }
+
+
+        .cta-box span {
+
+            color: var(--pink);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+
+        .cta-box h2 {
+
+            font-size: 42px;
+
+            font-weight: 800;
+
+            margin-top: 10px;
+        }
+
+
+        .cta-box h2 strong {
+            color: var(--pink);
+        }
+
+
+        .cta-box p {
+            color: var(--text);
+        }
+
+
+        .cta-button {
+
+            flex-shrink: 0;
+
+            padding: 16px 25px;
+
+            border-radius: 40px;
+
+            background: var(--pink);
+
+            color: white;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+
+        .cta-button:hover {
+
+            background: var(--pink-dark);
+
+            color: white;
+
+            transform: translateY(-3px);
+        }
+
+
+        .cta-button span {
+
+            color: white;
+
+            margin-left: 8px;
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        @keyframes dogPlay {
+
+            0%,100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            25% {
+                transform: translateY(-12px) rotate(-2deg);
+            }
+
+            50% {
+                transform: translateY(0) rotate(2deg);
+            }
+
+            75% {
+                transform: translateY(-8px) rotate(-1deg);
+            }
+        }
+
+
+        @keyframes catPlay {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+
+        @keyframes birdFly {
+
+            0%,100% {
+                transform: translate(0,0) rotate(0);
+            }
+
+            25% {
+                transform: translate(-20px,-15px) rotate(-5deg);
+            }
+
+            50% {
+                transform: translate(-40px,5px) rotate(5deg);
+            }
+
+            75% {
+                transform: translate(-20px,20px) rotate(-4deg);
+            }
+        }
+
+
+        @keyframes wingMove {
+
+            from {
+                transform: rotate(20deg);
+            }
+
+            to {
+                transform: rotate(-20deg);
+            }
+        }
+
+
+        @keyframes ambulanceDrive {
+
+            0% {
+                left: -180px;
+            }
+
+            45% {
+                left: 100px;
+            }
+
+            55% {
+                left: 100px;
+            }
+
+            100% {
+                left: 500px;
+            }
+        }
+
+
+        @keyframes sirenBlink {
+
+            0%,100% {
+                opacity: 1;
+
+                box-shadow:
+                    0 0 12px var(--pink);
+            }
+
+            50% {
+                opacity: .2;
+
+                box-shadow: none;
+            }
+        }
+
+
+        @keyframes roadMove {
+
+            from {
+                background-position: 0;
+            }
+
+            to {
+                background-position: -100px;
+            }
+        }
+
+
+        @keyframes dogWalk {
+
+            0% {
+                left: 30px;
+            }
+
+            35% {
+                left: 90px;
+            }
+
+            55% {
+                left: 90px;
+            }
+
+            100% {
+                left: 230px;
+            }
+        }
+
+
+        @keyframes personAdopt {
+
+            0% {
+                right: -100px;
+            }
+
+            30% {
+                right: 25px;
+            }
+
+            55% {
+                right: 25px;
+            }
+
+            75% {
+                right: 25px;
+            }
+
+            100% {
+                right: 260px;
+            }
+        }
+
+
+        @keyframes heartFloat {
+
+            0%,20% {
+                opacity: 0;
+                transform:
+                    rotate(-45deg)
+                    translateY(10px);
+            }
+
+            35% {
+                opacity: 1;
+            }
+
+            55% {
+                opacity: 1;
+
+                transform:
+                    rotate(-45deg)
+                    translateY(-20px);
+            }
+
+            70%,100% {
+                opacity: 0;
+            }
+        }
+
+
+        @keyframes volunteerWalk {
+
+            0% {
+                left: -90px;
+            }
+
+            25% {
+                left: 40px;
+            }
+
+            45% {
+                left: 55px;
+            }
+
+            65% {
+                left: 55px;
+            }
+
+            100% {
+                left: 300px;
+            }
+        }
+
+
+        @keyframes formAppear {
+
+            0%,20% {
+                transform: scale(0);
+            }
+
+            30%,75% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0);
+            }
+        }
+
+
+        @keyframes writingArm {
+
+            0%,35% {
+                transform: rotate(-55deg);
+            }
+
+            45% {
+                transform: rotate(-75deg);
+            }
+
+            55% {
+                transform: rotate(-45deg);
+            }
+
+            65% {
+                transform: rotate(-70deg);
+            }
+
+            75%,100% {
+                transform: rotate(-55deg);
+            }
+        }
+
+
+        @keyframes penWriting {
+
+            0%,35% {
+                opacity: 0;
+            }
+
+            40% {
+                opacity: 1;
+                left: 175px;
+            }
+
+            50% {
+                opacity: 1;
+                left: 190px;
+            }
+
+            60% {
+                opacity: 1;
+                left: 175px;
+            }
+
+            70%,100% {
+                opacity: 0;
+            }
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 991px) {
+
+            .hero-section {
+                padding-top: 80px;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons,
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-animal-area {
+                height: 500px;
+                margin-top: 20px;
+            }
+        }
+
+
+        @media (max-width: 576px) {
+
+            .hero-content h1 {
+
+                font-size: 43px;
+
+                letter-spacing: -2px;
+            }
+
+            .hero-animal-area {
+
+                transform: scale(.75);
+
+                margin-left: -40px;
+                margin-right: -40px;
+            }
+
+            .section-heading h2 {
+                font-size: 34px;
+            }
+
+            .cta-box {
+
+                padding: 30px;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body data-root="">
+
+    <!-- NAVBAR -->
+    <div data-nav></div>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero-section">
+
+        <div class="container">
+
+            <div class="row align-items-center min-vh-100">
+
+                <div class="col-lg-6 hero-content">
+
+                    <span class="hero-badge">
+                        ANIMAL WELFARE COMMUNITY
+                    </span>
+
+
+                    <h1>
+
+                        A Little Care
+                        <br>
+
+                        Makes A
+                        <span>Big Difference.</span>
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        Together, we can rescue, protect and care for
+                        animals who need a helping hand. Join our community
+                        and give every paw and wing a safer tomorrow.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="report.html"
+                            class="primary-btn">
+
+                            Report an Animal
+
+                            <span class="arrow">→</span>
+
+                        </a>
+
+
+                        <a
+                            href="donate.html"
+                            class="secondary-btn">
+
+                            Donate Now
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="hero-stats">
+
+                        <div class="stat-circle">
+                            500+
+                        </div>
+
+                        <div class="stat-circle">
+                            50+
+                        </div>
+
+                        <div class="stat-circle">
+                            100+
+                        </div>
+
+
+                        <div class="stat-text">
+
+                            <strong>
+                                500+ Animals
+                            </strong>
+
+                            <small>
+                                Supported by our community
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ANIMATED ANIMALS -->
+
+                <div class="col-lg-6">
+
+                    <div class="hero-animal-area">
+
+                        <div class="hero-circle"></div>
+
+
+                        <!-- BIRD 1 -->
+
+                        <div class="bird bird-one">
+
+                            <div class="bird-body"></div>
+
+                            <div class="bird-wing"></div>
+
+                            <div class="bird-beak"></div>
+
+                        </div>
+
+
+                        <!-- BIRD 2 -->
+
+                        <div class="bird bird-two">
+
+                            <div class="bird-body"></div>
+
+                            <div class="bird-wing"></div>
+
+                            <div class="bird-beak"></div>
+
+                        </div>
+
+
+                        <!-- DOG -->
+
+                        <div class="hero-dog">
+
+                            <div class="dog-ear dog-ear-left"></div>
+
+                            <div class="dog-ear dog-ear-right"></div>
+
+
+                            <div class="dog-head">
+
+                                <div class="dog-eye eye-left"></div>
+
+                                <div class="dog-eye eye-right"></div>
+
+
+                                <div class="dog-muzzle">
+
+                                    <div class="dog-nose"></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="dog-body"></div>
+
+
+                            <div class="dog-leg leg-one"></div>
+
+                            <div class="dog-leg leg-two"></div>
+
+                            <div class="dog-leg leg-three"></div>
+
+                            <div class="dog-leg leg-four"></div>
+
+
+                            <div class="dog-tail"></div>
+
+                        </div>
+
+
+                        <!-- CAT -->
+
+                        <div class="hero-cat">
+
+                            <div class="cat-ear cat-ear-left"></div>
+
+                            <div class="cat-ear cat-ear-right"></div>
+
+
+                            <div class="cat-head">
+
+                                <div class="cat-eye eye-left"></div>
+
+                                <div class="cat-eye eye-right"></div>
+
+                                <div class="cat-nose"></div>
+
+                            </div>
+
+
+                            <div class="cat-body"></div>
+
+
+                            <div class="cat-leg cat-leg-one"></div>
+
+                            <div class="cat-leg cat-leg-two"></div>
+
+                            <div class="cat-leg cat-leg-three"></div>
+
+
+                            <div class="cat-tail"></div>
+
+                        </div>
+
+
+                        <div class="ground-shadow"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WHAT WE DO
+    ====================================================== -->
+
+    <section class="help-section">
+
+        <div class="container">
+
+
+            <div class="section-heading text-center">
+
+                <span>
+                    WHAT WE DO
+                </span>
+
+                <h2>
+
+                    Small Actions.
+                    <strong>Big Impact.</strong>
+
+                </h2>
+
+                <p>
+
+                    Every action helps create a safer and kinder
+                    world for animals.
+
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+
+                <!-- =================================================
+                     RESCUE CARD
+                ================================================== -->
+
+                <div class="col-lg-4">
+
+                    <div class="service-card">
+
+
+                        <div class="animation-box rescue-animation">
+
+                            <div class="road-line"></div>
+
+
+                            <div class="ambulance">
+
+                                <div class="ambulance-light"></div>
+
+
+                                <div class="ambulance-body">
+
+                                    <div class="ambulance-window"></div>
+
+                                    <div class="ambulance-window second"></div>
+
+                                    <div class="ambulance-cross">
+                                        +
+                                    </div>
+
+                                </div>
+
+
+                                <div class="wheel wheel-one"></div>
+
+                                <div class="wheel wheel-two"></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-content">
+
+                            <span class="service-number">
+                                01
+                            </span>
+
+                            <h3>
+                                Report & Rescue
+                            </h3>
+
+                            <p>
+
+                                Report injured, sick, abandoned
+                                or animals in need and help connect
+                                them with rescue support.
+
+                            </p>
+
+
+                            <a href="report.html">
+
+                                Report a Case
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     ADOPTION CARD
+                ================================================== -->
+
+                <div class="col-lg-4">
+
+                    <div class="service-card">
+
+
+                        <div class="animation-box adoption-animation">
+
+                            <div class="adoption-ground"></div>
+
+
+                            <!-- DOG -->
+
+                            <div class="adoption-dog">
+
+                                <div class="adopt-dog-ear left"></div>
+
+                                <div class="adopt-dog-ear right"></div>
+
+
+                                <div class="adopt-dog-head">
+
+                                    <div class="adopt-eye left"></div>
+
+                                    <div class="adopt-eye right"></div>
+
+                                    <div class="adopt-nose"></div>
+
+                                </div>
+
+
+                                <div class="adopt-dog-body"></div>
+
+
+                                <div class="adopt-leg one"></div>
+
+                                <div class="adopt-leg two"></div>
+
+                                <div class="adopt-leg three"></div>
+
+
+                                <div class="adopt-tail"></div>
+
+                            </div>
+
+
+                            <!-- PERSON -->
+
+                            <div class="adopter">
+
+                                <div class="person-head"></div>
+
+                                <div class="person-body"></div>
+
+
+                                <div class="person-arm person-arm-left"></div>
+
+                                <div class="person-arm person-arm-right"></div>
+
+
+                                <div class="person-leg person-leg-left"></div>
+
+                                <div class="person-leg person-leg-right"></div>
+
+                            </div>
+
+
+                            <div class="adoption-heart"></div>
+
+                        </div>
+
+
+                        <div class="service-content">
+
+                            <span class="service-number">
+                                02
+                            </span>
+
+
+                            <h3>
+                                Responsible Adoption
+                            </h3>
+
+
+                            <p>
+
+                                Help animals find caring families
+                                and give them a safe and loving
+                                forever home.
+
+                            </p>
+
+
+                            <a href="adopt.html">
+
+                                View Animals
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     VOLUNTEER CARD
+                ================================================== -->
+
+                <div class="col-lg-4">
+
+                    <div class="service-card">
+
+
+                        <div class="animation-box volunteer-animation">
+
+                            <div class="volunteer-ground"></div>
+
+
+                            <!-- FORM -->
+
+                            <div class="volunteer-form">
+
+                                <div class="form-header"></div>
+
+                                <div class="form-line"></div>
+
+                                <div class="form-line short"></div>
+
+                                <div class="form-line"></div>
+
+                                <div class="form-box"></div>
+
+                                <div class="form-button"></div>
+
+                            </div>
+
+
+                            <!-- PERSON -->
+
+                            <div class="volunteer-person">
+
+                                <div class="volunteer-head"></div>
+
+                                <div class="volunteer-body"></div>
+
+                                <div class="volunteer-arm"></div>
+
+                                <div class="volunteer-leg left"></div>
+
+                                <div class="volunteer-leg right"></div>
+
+                            </div>
+
+
+                            <div class="writing-pen"></div>
+
+                        </div>
+
+
+                        <div class="service-content">
+
+                            <span class="service-number">
+                                03
+                            </span>
+
+
+                            <h3>
+                                Become a Volunteer
+                            </h3>
+
+
+                            <p>
+
+                                Join rescue, feeding,
+                                transportation and awareness
+                                activities in your community.
+
+                            </p>
+
+
+                            <a href="volunteer.html">
+
+                                Join Us
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="cta-section">
+
+        <div class="container">
+
+            <div class="cta-box">
+
+                <div>
+
+                    <span>
+                        JOIN OUR COMMUNITY
+                    </span>
+
+
+                    <h2>
+
+                        Every Small Action
+                        <strong>Matters.</strong>
+
+                    </h2>
+
+
+                    <p>
+
+                        Connect with people who care and help
+                        make a real difference for animals.
+
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="register.html"
+                    class="cta-button">
+
+                    Create an Account
+
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <div data-footer></div>
+
+
+    <!-- =====================================================
+         EXISTING SUPABASE / JS
+         DO NOT CHANGE
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="assets/js/config.js"></script>
+
+    <script src="assets/js/supabase.js"></script>
+
+    <script src="assets/js/auth.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

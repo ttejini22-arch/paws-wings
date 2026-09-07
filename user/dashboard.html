@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Dashboard - Paws & Wings</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f8fafc;
+            color: #243047;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar-custom {
+            background: white;
+            border-bottom: 1px solid #e8edf3;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand {
+            font-size: 24px;
+            font-weight: 800;
+            color: #e85d75;
+            text-decoration: none;
+        }
+
+        .nav-link-custom {
+            color: #4b5563;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-link-custom:hover {
+            color: #e85d75;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .dashboard-hero {
+            position: relative;
+            padding: 70px 0 55px;
+            background: linear-gradient(
+                135deg,
+                #fff4f6,
+                #f8fbff
+            );
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 15px;
+            animation: slideUp 0.8s ease both;
+        }
+
+        .hero-title span {
+            color: #e85d75;
+        }
+
+        .hero-subtitle {
+            font-size: 17px;
+            color: #687386;
+            max-width: 650px;
+            line-height: 1.7;
+            animation: slideUp 1s ease both;
+        }
+
+        .user-info {
+            margin-top: 22px;
+            animation: slideUp 1.2s ease both;
+        }
+
+        .user-email {
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .role-badge {
+            display: inline-block;
+            margin-left: 8px;
+            padding: 5px 13px;
+            border-radius: 30px;
+            background: #ffe5eb;
+            color: #d94862;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           HERO ANIMAL
+        ========================== */
+
+        .hero-animal {
+            width: 230px;
+            margin: auto;
+            animation: animalFloat 3s ease-in-out infinite;
+        }
+
+        .hero-animal svg {
+            width: 100%;
+            height: auto;
+            overflow: visible;
+        }
+
+        .animal-tail {
+            transform-origin: 180px 155px;
+            animation: tailMove 1.2s ease-in-out infinite;
+        }
+
+        .animal-ear {
+            transform-origin: center;
+            animation: earMove 2.5s ease-in-out infinite;
+        }
+
+        .animal-eye {
+            animation: blink 4s infinite;
+        }
+
+        /* =========================
+           SECTION
+        ========================== */
+
+        .section-title {
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .section-description {
+            color: #7b8494;
+            margin-bottom: 35px;
+        }
+
+        /* =========================
+           ACTION CARDS
+        ========================== */
+
+        .action-card {
+            height: 100%;
+            background: white;
+            border: 1px solid #edf0f5;
+            border-radius: 22px;
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-9px);
+            box-shadow: 0 18px 45px rgba(42, 55, 80, 0.12);
+        }
+
+        .action-card h5 {
+            font-size: 20px;
+            font-weight: 750;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .action-card p {
+            color: #7b8494;
+            font-size: 14px;
+            line-height: 1.6;
+            min-height: 45px;
+        }
+
+        .action-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 18px;
+            border-radius: 10px;
+            background: #e85d75;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .action-btn:hover {
+            background: #d94862;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           ANIMATION BOX
+        ========================== */
+
+        .animation-box {
+            width: 110px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .animation-box svg {
+            width: 90px;
+            height: 90px;
+        }
+
+        /* =========================
+           REPORT ANIMAL
+        ========================== */
+
+        .report-dog {
+            animation: dogBounce 2s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+
+        .report-dog-tail {
+            transform-origin: 72px 54px;
+            animation: dogTail 0.9s ease-in-out infinite;
+        }
+
+        .report-dog-ear {
+            transform-origin: center;
+            animation: dogEar 3s ease-in-out infinite;
+        }
+
+        .report-dog-eye {
+            animation: blink 4s infinite;
+        }
+
+        /* =========================
+           DONATE HEART
+        ========================== */
+
+        .donate-heart {
+            transform-origin: center;
+            animation: heartBeat 1.25s ease-in-out infinite;
+        }
+
+        .heart-ring {
+            animation: ringPulse 2s ease-out infinite;
+            transform-origin: center;
+        }
+
+        /* =========================
+           ADOPT HOME
+        ========================== */
+
+        .adopt-house {
+            animation: houseFloat 2.8s ease-in-out infinite;
+        }
+
+        .adopt-pet {
+            animation: petPeek 2.4s ease-in-out infinite;
+        }
+
+        /* =========================
+           VOLUNTEER HANDS
+        ========================== */
+
+        .help-hand-left {
+            transform-origin: 32px 65px;
+            animation: handLeft 2s ease-in-out infinite;
+        }
+
+        .help-hand-right {
+            transform-origin: 68px 65px;
+            animation: handRight 2s ease-in-out infinite;
+        }
+
+        .help-heart {
+            animation: smallHeart 1.5s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        /* =========================
+           DOCUMENT
+        ========================== */
+
+        .document-page {
+            animation: documentFloat 2.5s ease-in-out infinite;
+        }
+
+        .document-line {
+            animation: lineMove 2s ease-in-out infinite;
+        }
+
+        .document-line:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .document-line:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        /* =========================
+           DONATION CARD
+        ========================== */
+
+        .donation-heart {
+            animation: donationPulse 1.5s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        .coin {
+            animation: coinFloat 2s ease-in-out infinite;
+        }
+
+        .coin:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .coin:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        /* =========================
+           ADOPTION APPLICATION
+        ========================== */
+
+        .application-pet {
+            animation: applicationPet 2.5s ease-in-out infinite;
+        }
+
+        .application-house {
+            animation: applicationHouse 2.5s ease-in-out infinite;
+        }
+
+        /* =========================
+           ACTIVITY
+        ========================== */
+
+        .activity-card {
+            background: white;
+            border: 1px solid #edf0f5;
+            border-radius: 22px;
+            padding: 30px;
+        }
+
+        .stat-card {
+            border-radius: 18px;
+            padding: 25px;
+            background: #fafbfe;
+            border: 1px solid #eef1f6;
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(42, 55, 80, 0.08);
+        }
+
+        .stat-number {
+            font-size: 35px;
+            font-weight: 800;
+            color: #e85d75;
+        }
+
+        .stat-title {
+            color: #687386;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* =========================
+           REPORTS
+        ========================== */
+
+        .reports-box {
+            background: white;
+            border: 1px solid #edf0f5;
+            border-radius: 22px;
+            padding: 30px;
+        }
+
+        .empty-state {
+            padding: 50px 20px;
+            text-align: center;
+            color: #8992a3;
+        }
+
+        .empty-state-line {
+            width: 60px;
+            height: 3px;
+            background: #e85d75;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+            animation: emptyLine 2s ease-in-out infinite;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            margin-top: 70px;
+            padding: 30px 0;
+            background: #202938;
+            color: #cbd2dd;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================== */
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes animalFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes tailMove {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(16deg);
+            }
+        }
+
+        @keyframes earMove {
+            0%, 80%, 100% {
+                transform: rotate(0deg);
+            }
+
+            85% {
+                transform: rotate(-8deg);
+            }
+
+            90% {
+                transform: rotate(6deg);
+            }
+        }
+
+        @keyframes blink {
+            0%, 45%, 48%, 100% {
+                transform: scaleY(1);
+            }
+
+            46%, 47% {
+                transform: scaleY(0.1);
+            }
+        }
+
+        @keyframes dogBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @keyframes dogTail {
+            0%, 100% {
+                transform: rotate(-5deg);
+            }
+
+            50% {
+                transform: rotate(20deg);
+            }
+        }
+
+        @keyframes dogEar {
+            0%, 80%, 100% {
+                transform: rotate(0);
+            }
+
+            85% {
+                transform: rotate(-10deg);
+            }
+
+            90% {
+                transform: rotate(8deg);
+            }
+        }
+
+        @keyframes heartBeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            20% {
+                transform: scale(1.15);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes ringPulse {
+            0% {
+                opacity: 0.7;
+                transform: scale(0.8);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.4);
+            }
+        }
+
+        @keyframes houseFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @keyframes petPeek {
+            0%, 100% {
+                transform: translateY(8px);
+            }
+
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+        @keyframes handLeft {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(-7deg);
+            }
+        }
+
+        @keyframes handRight {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(7deg);
+            }
+        }
+
+        @keyframes smallHeart {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.18);
+            }
+        }
+
+        @keyframes documentFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+        @keyframes lineMove {
+            0%, 100% {
+                opacity: 0.4;
+                transform: scaleX(0.8);
+                transform-origin: left;
+            }
+
+            50% {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes donationPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+        @keyframes coinFloat {
+            0%, 100% {
+                transform: translateY(5px);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: translateY(-8px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes applicationPet {
+            0%, 100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+        }
+
+        @keyframes applicationHouse {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes emptyLine {
+            0%, 100% {
+                width: 40px;
+            }
+
+            50% {
+                width: 75px;
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 768px) {
+
+            .navbar-custom {
+                padding: 12px 0;
+            }
+
+            .nav-link-custom {
+                margin-left: 12px;
+                font-size: 14px;
+            }
+
+            .dashboard-hero {
+                padding: 45px 0;
+            }
+
+            .hero-animal {
+                width: 170px;
+                margin-top: 30px;
+            }
+
+            .action-card {
+                padding: 23px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================== -->
+
+<nav class="navbar-custom">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+
+            <a href="../index.html" class="brand">
+                Paws & Wings
+            </a>
+
+            <div>
+                <a href="../index.html" class="nav-link-custom">
+                    Home
+                </a>
+
+                <a href="../login.html" class="nav-link-custom">
+                    Logout
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="dashboard-hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8 hero-content">
+
+                <h1 class="hero-title">
+                    Welcome back,
+                    <span id="userName">User</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Your small actions can create a safer and kinder
+                    community for animals and birds.
+                </p>
+
+                <div class="user-info">
+
+                    <span class="user-email" id="userEmail">
+                        Loading...
+                    </span>
+
+                    <span class="role-badge" id="userRole">
+                        User
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4 text-center">
+
+                <div class="hero-animal">
+
+                    <svg viewBox="0 0 240 220"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <!-- body -->
+                        <ellipse
+                            cx="120"
+                            cy="160"
+                            rx="65"
+                            ry="38"
+                            fill="#e9a875"/>
+
+                        <!-- head -->
+                        <circle
+                            cx="120"
+                            cy="100"
+                            r="52"
+                            fill="#f1b984"/>
+
+                        <!-- ears -->
+                        <path
+                            class="animal-ear"
+                            d="M78 70 L62 25 L105 58 Z"
+                            fill="#d99060"/>
+
+                        <path
+                            class="animal-ear"
+                            d="M162 70 L178 25 L135 58 Z"
+                            fill="#d99060"/>
+
+                        <!-- inner ears -->
+                        <path
+                            d="M75 52 L70 37 L91 56 Z"
+                            fill="#f3c5a3"/>
+
+                        <path
+                            d="M165 52 L170 37 L149 56 Z"
+                            fill="#f3c5a3"/>
+
+                        <!-- eyes -->
+                        <ellipse
+                            class="animal-eye"
+                            cx="101"
+                            cy="98"
+                            rx="5"
+                            ry="7"
+                            fill="#263238"/>
+
+                        <ellipse
+                            class="animal-eye"
+                            cx="139"
+                            cy="98"
+                            rx="5"
+                            ry="7"
+                            fill="#263238"/>
+
+                        <!-- nose -->
+                        <ellipse
+                            cx="120"
+                            cy="116"
+                            rx="9"
+                            ry="7"
+                            fill="#6d4545"/>
+
+                        <!-- mouth -->
+                        <path
+                            d="M120 122 Q111 132 103 125"
+                            fill="none"
+                            stroke="#6d4545"
+                            stroke-width="3"
+                            stroke-linecap="round"/>
+
+                        <path
+                            d="M120 122 Q129 132 137 125"
+                            fill="none"
+                            stroke="#6d4545"
+                            stroke-width="3"
+                            stroke-linecap="round"/>
+
+                        <!-- legs -->
+                        <rect
+                            x="78"
+                            y="170"
+                            width="20"
+                            height="35"
+                            rx="10"
+                            fill="#d99060"/>
+
+                        <rect
+                            x="142"
+                            y="170"
+                            width="20"
+                            height="35"
+                            rx="10"
+                            fill="#d99060"/>
+
+                        <!-- tail -->
+                        <path
+                            class="animal-tail"
+                            d="M178 150 Q220 125 205 95"
+                            fill="none"
+                            stroke="#d99060"
+                            stroke-width="15"
+                            stroke-linecap="round"/>
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     QUICK ACTIONS
+========================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Quick Actions
+        </h2>
+
+        <p class="section-description">
+            Choose an action and help make a difference.
+        </p>
+
+
+        <div class="row g-4">
+
+
+            <!-- REPORT ANIMAL -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="action-card">
+
+                    <div class="animation-box">
+
+                        <svg viewBox="0 0 120 100"
+                             xmlns="http://www.w3.org/2000/svg">
+
+                            <g class="report-dog">
+
+                                <!-- tail -->
+                                <path
+                                    class="report-dog-tail"
+                                    d="M82 58 Q108 42 101 22"
+                                    fill="none"
+                                    stroke="#d99060"
+                                    stroke-width="9"
+                                    stroke-linecap="round"/>
+
+                                <!-- body -->
+                                <ellipse
+                                    cx="60"
+                                    cy="65"
+                                    rx="30"
+                                    ry="20"
+                                    fill="#e9a875"/>
+
+                                <!-- head -->
+                                <circle
+                                    cx="43"
+                                    cy="43"
+                                    r="25"
+                                    fill="#f1b984"/>
+
+                                <!-- ears -->
+                                <path
+                                    class="report-dog-ear"
+                                    d="M25 27 L15 7 L38 20 Z"
+                                    fill="#d99060"/>
+
+                                <path
+                                    class="report-dog-ear"
+                                    d="M60 27 L72 7 L66 35 Z"
+                                    fill="#d99060"/>
+
+                                <!-- eyes -->
+                                <circle
+                                    class="report-dog-eye"
+                                    cx="35"
+                                    cy="42"
+                                    r="3.5"
+                                    fill="#27313d"/>
+
+                                <circle
+                                    class="report-dog-eye"
+                                    cx="51"
+                                    cy="42"
+                                    r="3.5"
+                                    fill="#27313d"/>
+
+                                <!-- nose -->
+                                <ellipse
+                                    cx="43"
+                                    cy="52"
+                                    rx="5"
+                                    ry="4"
+                                    fill="#674444"/>
+
+                                <!-- legs -->
+                                <rect
+                                    x="43"
+                                    y="76"
+                                    width="9"
+                                    height="18"
+                                    rx="4"
+                                    fill="#d99060"/>
+
+                                <rect
+                                    x="69"
+                                    y="76"
+                                    width="9"
+                                    height="18"
+                                    rx="4"
+                                    fill="#d99060"/>
+
+                            </g>
+
+                        </svg>
+
+                    </div>
+
+                    <h5>Report Animal</h5>
+
+                    <p>
+                        Report an injured, sick or stray animal
+                        that needs help.
+                    </p>
+
+                    <a
+                        href="../report.html"
+                        class="action-btn">
+                        Report Now
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- DONATE -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="action-card">
+
+                    <div class="animation-box">
+
+                        <svg viewBox="0 0 120 100"
+                             xmlns="http://www.w3.org/2000/svg">
+
+                            <circle
+                                class="heart-ring"
+                                cx="60"
+                                cy="48"
+                                r="25"
+                                fill="none"
+                                stroke="#f3a0b0"
+                                stroke-width="3"/>
+
+                            <path
+                                class="donate-heart"
+                                d="M60 75
+                                   C54 68 32 55 32 39
+                                   C32 27 47 22 56 32
+                                   L60 36
+                                   L64 32
+                                   C73 22 88 27 88 39
+                                   C88 55 66 68 60 75 Z"
+                                fill="#e85d75"/>
+
+                        </svg>
+
+                    </div>
+
+                    <h5>Donate</h5>
+
+                    <p>
+                        Support animal welfare through
+                        meaningful donations.
+                    </p>
+
+                    <a
+                        href="donate.html"
+                        class="action-btn">
+                        Donate Now
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ADOPT -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="action-card">
+
+                    <div class="animation-box">
+
+                        <svg viewBox="0 0 120 100"
+                             xmlns="http://www.w3.org/2000/svg">
+
+                            <!-- house -->
+                            <g class="adopt-house">
+
+                                <path
+                                    d="M22 48 L60 18 L98 48"
+                                    fill="none"
+                                    stroke="#e85d75"
+                                    stroke-width="7"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+
+                                <rect
+                                    x="30"
+                                    y="45"
+                                    width="60"
+                                    height="40"
+                                    rx="4"
+                                    fill="#ffe8ed"/>
+
+                                <rect
+                                    x="53"
+                                    y="62"
+                                    width="15"
+                                    height="23"
+                                    rx="3"
+                                    fill="#e85d75"/>
+
+                            </g>
+
+                            <!-- pet -->
+                            <g class="adopt-pet">
+
+                                <circle
+                                    cx="60"
+                                    cy="52"
+                                    r="10"
+                                    fill="#d99060"/>
+
+                                <circle
+                                    cx="54"
+                                    cy="51"
+                                    r="2"
+                                    fill="#263238"/>
+
+                                <circle
+                                    cx="66"
+                                    cy="51"
+                                    r="2"
+                                    fill="#263238"/>
+
+                                <path
+                                    d="M53 43 L50 35 L58 40"
+                                    fill="#c77c52"/>
+
+                                <path
+                                    d="M67 43 L70 35 L62 40"
+                                    fill="#c77c52"/>
+
+                            </g>
+
+                        </svg>
+
+                    </div>
+
+                    <h5>Adopt</h5>
+
+                    <p>
+                        Give a rescued animal a safe and loving
+                        home.
+                    </p>
+
+                    <a
+                        href="adopt.html"
+                        class="action-btn">
+                        View Animals
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- VOLUNTEER -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="action-card">
+
+                    <div class="animation-box">
+
+                        <svg viewBox="0 0 120 100"
+                             xmlns="http://www.w3.org/2000/svg">
+
+                            <!-- helping hands -->
+
+                            <path
+                                class="help-hand-left"
+                                d="M15 62
+                                   C22 54 30 54 39 60
+                                   L51 70
+                                   C55 74 51 82 46 79
+                                   L31 69
+                                   L24 78
+                                   Z"
+                                fill="#e9a875"/>
+
+                            <path
+                                class="help-hand-right"
+                                d="M105 62
+                                   C98 54 90 54 81 60
+                                   L69 70
+                                   C65 74 69 82 74 79
+                                   L89 69
+                                   L96 78
+                                   Z"
+                                fill="#f1b984"/>
+
+                            <!-- heart -->
+
+                            <path
+                                class="help-heart"
+                                d="M60 65
+                                   C56 60 47 55 47 48
+                                   C47 42 54 39 60 45
+                                   C66 39 73 42 73 48
+                                   C73 55 64 60 60 65 Z"
+                                fill="#e85d75"/>
+
+                        </svg>
+
+                    </div>
+
+                    <h5>Volunteer</h5>
+
+                    <p>
+                        Join the community and help animals
+                        in need.
+                    </p>
+
+                    <a
+                        href="volunteer.html"
+                        class="action-btn">
+                        Join Us
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MY ACTIVITY
+========================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            My Activity
+        </h2>
+
+        <p class="section-description">
+            Keep track of your activities on Paws & Wings.
+        </p>
+
+
+        <div class="activity-card">
+
+            <div class="row g-4">
+
+
+                <!-- REPORTS -->
+
+                <div class="col-md-4">
+
+                    <div class="stat-card">
+
+                        <div class="animation-box">
+
+                            <svg viewBox="0 0 100 100"
+                                 xmlns="http://www.w3.org/2000/svg">
+
+                                <g class="document-page">
+
+                                    <rect
+                                        x="25"
+                                        y="12"
+                                        width="50"
+                                        height="70"
+                                        rx="5"
+                                        fill="#fff0f3"
+                                        stroke="#e85d75"
+                                        stroke-width="3"/>
+
+                                    <path
+                                        d="M36 30 H64"
+                                        stroke="#e85d75"
+                                        stroke-width="4"
+                                        stroke-linecap="round"/>
+
+                                    <path
+                                        d="M36 43 H64"
+                                        stroke="#e85d75"
+                                        stroke-width="4"
+                                        stroke-linecap="round"/>
+
+                                    <path
+                                        d="M36 56 H55"
+                                        stroke="#e85d75"
+                                        stroke-width="4"
+                                        stroke-linecap="round"/>
+
+                                </g>
+
+                            </svg>
+
+                        </div>
+
+                        <div
+                            class="stat-number"
+                            id="reportCount">
+                            0
+                        </div>
+
+                        <div class="stat-title">
+                            My Reports
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DONATIONS -->
+
+                <div class="col-md-4">
+
+                    <div class="stat-card">
+
+                        <div class="animation-box">
+
+                            <svg viewBox="0 0 100 100"
+                                 xmlns="http://www.w3.org/2000/svg">
+
+                                <circle
+                                    class="coin"
+                                    cx="28"
+                                    cy="65"
+                                    r="9"
+                                    fill="#f5c46b"/>
+
+                                <circle
+                                    class="coin"
+                                    cx="50"
+                                    cy="55"
+                                    r="9"
+                                    fill="#f5c46b"/>
+
+                                <circle
+                                    class="coin"
+                                    cx="72"
+                                    cy="65"
+                                    r="9"
+                                    fill="#f5c46b"/>
+
+                                <path
+                                    class="donation-heart"
+                                    d="M50 55
+                                       C45 49 34 44 34 35
+                                       C34 28 42 25 48 32
+                                       L50 34
+                                       L52 32
+                                       C58 25 66 28 66 35
+                                       C66 44 55 49 50 55 Z"
+                                    fill="#e85d75"/>
+
+                            </svg>
+
+                        </div>
+
+                        <div
+                            class="stat-number"
+                            id="donationCount">
+                            0
+                        </div>
+
+                        <div class="stat-title">
+                            My Donations
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- APPLICATIONS -->
+
+                <div class="col-md-4">
+
+                    <div class="stat-card">
+
+                        <div class="animation-box">
+
+                            <svg viewBox="0 0 100 100"
+                                 xmlns="http://www.w3.org/2000/svg">
+
+                                <g class="application-house">
+
+                                    <path
+                                        d="M22 50 L50 27 L78 50"
+                                        fill="none"
+                                        stroke="#e85d75"
+                                        stroke-width="5"/>
+
+                                    <rect
+                                        x="28"
+                                        y="47"
+                                        width="44"
+                                        height="32"
+                                        rx="3"
+                                        fill="#ffe9ee"/>
+
+                                    <rect
+                                        x="46"
+                                        y="62"
+                                        width="9"
+                                        height="17"
+                                        fill="#e85d75"/>
+
+                                </g>
+
+                                <g class="application-pet">
+
+                                    <circle
+                                        cx="50"
+                                        cy="53"
+                                        r="8"
+                                        fill="#d99060"/>
+
+                                    <circle
+                                        cx="47"
+                                        cy="52"
+                                        r="1.8"
+                                        fill="#263238"/>
+
+                                    <circle
+                                        cx="53"
+                                        cy="52"
+                                        r="1.8"
+                                        fill="#263238"/>
+
+                                    <path
+                                        d="M44 47 L42 40 L48 44"
+                                        fill="#c77c52"/>
+
+                                    <path
+                                        d="M56 47 L58 40 L52 44"
+                                        fill="#c77c52"/>
+
+                                </g>
+
+                            </svg>
+
+                        </div>
+
+                        <div
+                            class="stat-number"
+                            id="applicationCount">
+                            0
+                        </div>
+
+                        <div class="stat-title">
+                            Adoption Applications
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RECENT REPORTS
+========================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            My Recent Reports
+        </h2>
+
+        <p class="section-description">
+            View the animal reports you have submitted.
+        </p>
+
+
+        <div class="reports-box">
+
+            <div
+                id="reportsContainer"
+                class="empty-state">
+
+                <div class="empty-state-line"></div>
+
+                <p>
+                    Loading your reports...
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <div class="container">
+
+        Paws & Wings — Building a kinder community for
+        animals and birds.
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     SUPABASE
+========================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../assets/js/config.js"></script>
+
+<script src="../assets/js/supabase.js"></script>
+
+<script src="../assets/js/auth.js"></script>
+
+
+<!-- =========================
+     DASHBOARD SCRIPT
+========================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+    if (!window.sb) {
+        console.error("Supabase is not configured.");
+        return;
+    }
+
+    try {
+
+        /* =========================
+           GET SESSION
+        ========================== */
+
+        const {
+            data: sessionData,
+            error: sessionError
+        } = await sb.auth.getSession();
+
+        if (sessionError) {
+            console.error(sessionError);
+            return;
+        }
+
+        const session = sessionData.session;
+
+        if (!session) {
+            window.location.href = "../login.html";
+            return;
+        }
+
+
+        /* =========================
+           USER DETAILS
+        ========================== */
+
+        const user = session.user;
+
+        document.getElementById("userEmail").textContent =
+            user.email || "";
+
+
+        /* =========================
+           PROFILE
+        ========================== */
+
+        const {
+            data: profile,
+            error: profileError
+        } = await sb
+            .from("profiles")
+            .select("*")
+            .eq("id", user.id)
+            .single();
+
+
+        if (profileError) {
+
+            console.error(
+                "Profile error:",
+                profileError
+            );
+
+        } else if (profile) {
+
+            document.getElementById("userName").textContent =
+                profile.full_name || "User";
+
+            document.getElementById("userRole").textContent =
+                profile.role || "user";
+
+        }
+
+
+        /* =========================
+           REPORT COUNT
+        ========================== */
+
+        const {
+            count: reportCount,
+            error: reportError
+        } = await sb
+            .from("animal_reports")
+            .select("*", {
+                count: "exact",
+                head: true
+            })
+            .eq("reporter_id", user.id);
+
+
+        if (!reportError) {
+
+            document.getElementById(
+                "reportCount"
+            ).textContent = reportCount || 0;
+
+        }
+
+
+        /* =========================
+           DONATION COUNT
+        ========================== */
+
+        let donationCount = 0;
+
+        const donationResult = await sb
+            .from("donations")
+            .select("*", {
+                count: "exact",
+                head: true
+            })
+            .eq("user_id", user.id);
+
+        if (!donationResult.error) {
+
+            donationCount =
+                donationResult.count || 0;
+
+        }
+
+        document.getElementById(
+            "donationCount"
+        ).textContent = donationCount;
+
+
+        /* =========================
+           ADOPTION APPLICATION COUNT
+        ========================== */
+
+        let applicationCount = 0;
+
+        const applicationResult = await sb
+            .from("adoption_applications")
+            .select("*", {
+                count: "exact",
+                head: true
+            })
+            .eq("user_id", user.id);
+
+        if (!applicationResult.error) {
+
+            applicationCount =
+                applicationResult.count || 0;
+
+        }
+
+        document.getElementById(
+            "applicationCount"
+        ).textContent = applicationCount;
+
+
+        /* =========================
+           RECENT REPORTS
+        ========================== */
+
+        const {
+            data: reports,
+            error: reportsError
+        } = await sb
+            .from("animal_reports")
+            .select("*")
+            .eq("reporter_id", user.id)
+            .order("created_at", {
+                ascending: false
+            })
+            .limit(5);
+
+
+        const container =
+            document.getElementById(
+                "reportsContainer"
+            );
+
+
+        if (reportsError) {
+
+            console.error(
+                "Reports error:",
+                reportsError
+            );
+
+            container.innerHTML = `
+                <div class="empty-state-line"></div>
+                <p>
+                    Your recent reports could not be loaded.
+                </p>
+            `;
+
+            return;
+        }
+
+
+        if (!reports || reports.length === 0) {
+
+            container.innerHTML = `
+                <div class="empty-state-line"></div>
+                <p>
+                    You have not submitted any animal reports yet.
+                </p>
+            `;
+
+            return;
+        }
+
+
+        /* =========================
+           SHOW REPORTS
+        ========================== */
+
+        container.className = "";
+
+        container.innerHTML = reports.map(report => {
+
+            const animal =
+                report.animal_type ||
+                "Animal";
+
+            const category =
+                report.category ||
+                "General";
+
+            const location =
+                report.location ||
+                "Location not provided";
+
+            const status =
+                report.status ||
+                "Pending";
+
+            return `
+                <div
+                    style="
+                        padding:18px 0;
+                        border-bottom:1px solid #edf0f5;
+                    "
+                >
+
+                    <div
+                        style="
+                            display:flex;
+                            justify-content:space-between;
+                            align-items:center;
+                            gap:15px;
+                            flex-wrap:wrap;
+                        "
+                    >
+
+                        <div>
+
+                            <strong
+                                style="
+                                    font-size:17px;
+                                    color:#273246;
+                                "
+                            >
+                                ${escapeHtml(animal)}
+                            </strong>
+
+                            <div
+                                style="
+                                    margin-top:5px;
+                                    color:#7b8494;
+                                    font-size:14px;
+                                "
+                            >
+                                ${escapeHtml(category)}
+                                ·
+                                ${escapeHtml(location)}
+                            </div>
+
+                        </div>
+
+
+                        <span
+                            style="
+                                padding:6px 12px;
+                                border-radius:20px;
+                                background:#fff0f3;
+                                color:#d94862;
+                                font-size:12px;
+                                font-weight:700;
+                            "
+                        >
+                            ${escapeHtml(status)}
+                        </span>
+
+                    </div>
+
+                </div>
+            `;
+
+        }).join("");
+
+
+    } catch (error) {
+
+        console.error(
+            "Dashboard error:",
+            error
+        );
+
+    }
+
+});
+
+
+/* =========================
+   SAFE TEXT
+========================== */
+
+function escapeHtml(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+</script>
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>

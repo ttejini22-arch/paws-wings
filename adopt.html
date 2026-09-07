@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Adopt | Paws & Wings</title>
+
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+
+/* ===============================
+   PINK + WHITE THEME
+================================ */
+
+:root {
+    --pink: #e95b9f;
+    --dark-pink: #d94789;
+    --light-pink: #fff0f6;
+    --border-pink: #f3bfd5;
+    --white: #ffffff;
+    --text: #555555;
+}
+
+body {
+    background: var(--white) !important;
+    color: var(--text);
+}
+
+
+/* ===============================
+   ADOPT HEADER
+================================ */
+
+.adopt-header {
+    position: relative;
+    overflow: hidden;
+    padding: 70px 0;
+
+    background: linear-gradient(
+        135deg,
+        var(--light-pink),
+        var(--white)
+    ) !important;
+}
+
+.adopt-header h1 {
+    color: var(--dark-pink);
+    font-weight: 700;
+}
+
+.adopt-header .lead {
+    color: #666666;
+}
+
+
+/* Floating background circles */
+
+.adopt-header::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background: rgba(233, 91, 159, 0.14);
+
+    right: 12%;
+    top: 20px;
+
+    animation: headerFloat 3s ease-in-out infinite;
+}
+
+.adopt-header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: rgba(233, 91, 159, 0.20);
+
+    right: 25%;
+    bottom: 20px;
+
+    animation: headerFloat 2.2s ease-in-out infinite reverse;
+}
+
+@keyframes headerFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+
+}
+
+
+/* ===============================
+   ANIMAL CARDS
+================================ */
+
+.adopt-card {
+    background: var(--white) !important;
+
+    border: 2px solid var(--border-pink) !important;
+
+    border-radius: 18px !important;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.adopt-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--pink) !important;
+
+    box-shadow:
+        0 15px 35px rgba(233, 91, 159, 0.16) !important;
+}
+
+
+/* Moving top line */
+
+.adopt-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 4px;
+
+    background: var(--pink);
+
+    animation: cardLine 3s linear infinite;
+}
+
+@keyframes cardLine {
+
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+
+}
+
+
+/* ===============================
+   ANIMAL ANIMATION AREA
+================================ */
+
+.animal-animation {
+    width: 85px;
+    height: 85px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    background: var(--light-pink);
+
+    border: 2px solid var(--pink);
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: animalFloat 2.3s ease-in-out infinite;
+}
+
+@keyframes animalFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+}
+
+
+/* ===============================
+   DOG
+================================ */
+
+.dog {
+    width: 42px;
+    height: 35px;
+
+    background: var(--pink);
+
+    border-radius: 48% 48% 42% 42%;
+
+    position: relative;
+
+    animation: dogMove 1.8s ease-in-out infinite;
+}
+
+
+/* Dog ears */
+
+.dog::before {
+    content: "";
+
+    position: absolute;
+
+    width: 15px;
+    height: 22px;
+
+    background: var(--dark-pink);
+
+    border-radius: 70% 30% 60% 40%;
+
+    left: -7px;
+    top: 1px;
+
+    transform: rotate(20deg);
+}
+
+.dog::after {
+    content: "";
+
+    position: absolute;
+
+    width: 15px;
+    height: 22px;
+
+    background: var(--dark-pink);
+
+    border-radius: 30% 70% 40% 60%;
+
+    right: -7px;
+    top: 1px;
+
+    transform: rotate(-20deg);
+}
+
+
+/* Dog face */
+
+.dog-face {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    background: var(--white);
+
+    border-radius: 50%;
+
+    top: 13px;
+    left: 10px;
+
+    box-shadow:
+        15px 0 0 var(--white);
+}
+
+.dog-face::after {
+    content: "";
+
+    position: absolute;
+
+    width: 8px;
+    height: 5px;
+
+    background: var(--dark-pink);
+
+    border-radius: 50%;
+
+    left: 7px;
+    top: 9px;
+}
+
+@keyframes dogMove {
+
+    0%, 100% {
+        transform: translateX(0) rotate(0);
+    }
+
+    50% {
+        transform: translateX(5px) rotate(3deg);
+    }
+
+}
+
+
+/* ===============================
+   CAT
+================================ */
+
+.cat {
+    width: 42px;
+    height: 35px;
+
+    background: var(--pink);
+
+    border-radius: 50% 50% 45% 45%;
+
+    position: relative;
+
+    animation: catMove 1.8s ease-in-out infinite;
+}
+
+
+/* Cat ears */
+
+.cat::before {
+    content: "";
+
+    position: absolute;
+
+    width: 16px;
+    height: 16px;
+
+    background: var(--pink);
+
+    left: 2px;
+    top: -7px;
+
+    clip-path: polygon(0 100%, 25% 0, 100% 100%);
+}
+
+.cat::after {
+    content: "";
+
+    position: absolute;
+
+    width: 16px;
+    height: 16px;
+
+    background: var(--pink);
+
+    right: 2px;
+    top: -7px;
+
+    clip-path: polygon(0 100%, 75% 0, 100% 100%);
+}
+
+
+/* Cat eyes */
+
+.cat-eyes {
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    background: var(--white);
+
+    border-radius: 50%;
+
+    top: 13px;
+    left: 10px;
+
+    box-shadow:
+        16px 0 0 var(--white);
+}
+
+.cat-eyes::after {
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 4px;
+
+    background: var(--dark-pink);
+
+    border-radius: 50%;
+
+    left: 8px;
+    top: 8px;
+}
+
+@keyframes catMove {
+
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-5px);
+    }
+
+}
+
+
+/* ===============================
+   BIRD
+================================ */
+
+.bird {
+    width: 38px;
+    height: 30px;
+
+    background: var(--pink);
+
+    border-radius: 55% 45% 55% 45%;
+
+    position: relative;
+
+    animation: birdFly 1.6s ease-in-out infinite;
+}
+
+
+/* Bird wing */
+
+.bird::before {
+    content: "";
+
+    position: absolute;
+
+    width: 24px;
+    height: 14px;
+
+    background: var(--dark-pink);
+
+    border-radius: 50%;
+
+    left: 5px;
+    top: 4px;
+
+    transform-origin: bottom center;
+
+    animation: wingMove 0.8s ease-in-out infinite alternate;
+}
+
+
+/* Bird beak */
+
+.bird::after {
+    content: "";
+
+    position: absolute;
+
+    right: -10px;
+    top: 11px;
+
+    width: 0;
+    height: 0;
+
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid var(--dark-pink);
+}
+
+@keyframes birdFly {
+
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(6px, -8px);
+    }
+
+}
+
+@keyframes wingMove {
+
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-25deg);
+    }
+
+}
+
+
+/* ===============================
+   CARD TEXT
+================================ */
+
+.adopt-card h4 {
+    color: var(--dark-pink);
+    font-weight: 700;
+}
+
+.adopt-card p {
+    color: #666666;
+    line-height: 1.6;
+}
+
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+
+    .adopt-header {
+        padding: 55px 0;
+    }
+
+    .adopt-header h1 {
+        font-size: 32px;
+    }
+
+    .adopt-header .lead {
+        font-size: 17px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body data-root="">
+
+
+<!-- NAVIGATION -->
+
+<div data-nav></div>
+
+
+<!-- ADOPT HEADER -->
+
+<section class="soft section adopt-header">
+
+    <div class="container">
+
+        <h1>Adopt</h1>
+
+        <p class="lead">
+            Animals available for responsible adoption
+            will be loaded from Supabase.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ANIMAL CATEGORIES -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <!-- DOGS -->
+
+            <div class="col-md-4">
+
+                <div class="card p-4 adopt-card">
+
+                    <div class="animal-animation">
+
+                        <div class="dog">
+                            <div class="dog-face"></div>
+                        </div>
+
+                    </div>
+
+                    <h4>Dogs</h4>
+
+                    <p>
+                        Friendly rescued dogs looking for safe homes.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CATS -->
+
+            <div class="col-md-4">
+
+                <div class="card p-4 adopt-card">
+
+                    <div class="animal-animation">
+
+                        <div class="cat">
+                            <div class="cat-eyes"></div>
+                        </div>
+
+                    </div>
+
+                    <h4>Cats</h4>
+
+                    <p>
+                        Rescued cats that need caring families.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- BIRDS -->
+
+            <div class="col-md-4">
+
+                <div class="card p-4 adopt-card">
+
+                    <div class="animal-animation">
+
+                        <div class="bird"></div>
+
+                    </div>
+
+                    <h4>Birds</h4>
+
+                    <p>
+                        Small birds needing safe and responsible care.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<div data-footer></div>
+
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="assets/js/config.js"></script>
+
+<script src="assets/js/supabase.js"></script>
+
+<script src="assets/js/auth.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
